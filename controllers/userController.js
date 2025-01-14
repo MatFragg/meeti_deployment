@@ -1,5 +1,5 @@
 import Users from '../models/Users.js'
-import {sendEmail} from '../handlers/email.js'
+import {sendEmail,resendFunction} from '../handlers/email.js'
 import { body, validationResult } from 'express-validator';
 import multer from 'multer';
 import shortid from "shortid";
@@ -81,7 +81,7 @@ const create_account = async (req,res) => {
         const url = `http://${req.get('host')}/confirm-account/${user.email}`
 
         // Send confirmation email
-        await sendEmail({
+        await resendFunction({
             user,
             url,
             subject: 'Confirm your Meeti Account',
@@ -96,7 +96,7 @@ const create_account = async (req,res) => {
         console.error('Error caught:', error); 
         // Extract Sequelize  errors
         let sequelizeErrors = [];
-        if (error.name === 'SequelizeValidationError' && error.errors) {
+        if (error.name === 'SequelizeUniqueConstraintError' && error.errors) {
             sequelizeErrors = error.errors.map(err => err.message);
             console.log(sequelizeErrors);
         }

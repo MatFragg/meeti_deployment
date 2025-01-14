@@ -191,7 +191,7 @@ p {
 
 /** layout**/
 .site-header {
-   text-align: center;
+    text-align: center;
     margin-top: 1rem;
 }
 @media (min-width:768px){
@@ -304,7 +304,6 @@ main.categorias {
 }
 .listado-categorias li:hover img{
     transform: scale(0.95); 
-   
 }
 
 /** Caracteristicas **/
@@ -371,6 +370,13 @@ main.contenedor-formularios {
     align-items: center;
     margin-bottom: 1rem;
 }
+
+.campo-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .campo.acciones {
     justify-content: space-between;
     padding: 1rem 0;
@@ -395,6 +401,10 @@ main.contenedor-formularios {
     font-size: 1rem;
 }
 
+.campo.boton {
+    justify-content: flex-start;
+    padding-top: 2rem;
+}
 
 .campo.map {
     display: block;
