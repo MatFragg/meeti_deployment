@@ -1,0 +1,13 @@
+<main class="contenedor proximos-eventos">
+    <h1><%= pageName %></h1>
+    <% if(meeties.length > 0) { %>
+        <div class="grid columnas-md-3 ">
+            <% meeties.forEach(meeti => { %>
+                <%- include('partials/card-meeti.ejs', { meeti: meeti }) %>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No meetis found.</p>
+    <% } %>
+
+</main>

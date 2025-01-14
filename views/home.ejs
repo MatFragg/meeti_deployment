@@ -1,0 +1,72 @@
+<div class="hero">
+    <h1>Find or Create a Group to Share what you like</h1>
+    <a href="/create-account" class="btn btn-amarillo">Sign Up</a>
+</div>
+
+<div class="buscador-inicio">
+    <div class="contenedor">
+        <h2>Search for a Group in your City</h2>
+        <form action="/search" method="GET">
+            <select name="category">
+                <option value="" selected>--- All Categories ---</option>
+                <% categories.forEach(category =>{ %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                <% }) %>
+            </select>
+            <input type="text" name="title" placeholder="Meeti's title">
+            <input type="text" name="city" placeholder="City">
+            <select name="country">
+                <option value="" selected>-- All Countries --</option>
+                <option value="MEX">México</option>
+                <option value="COL">Colombia</option>
+                <option value="ARG">Argentina</option>
+                <option value="ESP">España</option>
+                <option value="USA">Estados Unidos</option>
+                <option value="PER">Perú</option>
+            </select>            
+            <input type="submit" value="Search" class="btn btn-rosa">
+        </form>
+    </div>
+</div>
+
+<div class="contenedor">
+    <h2>Next Meeti's</h2>
+    <div class="grid columnas-md-3">
+        <% if(meetis.length > 0) { %>
+            <% meetis.forEach(meeti => { %>
+                <%- include('partials/card-meeti.ejs', { meeti: meeti }) %>
+            <% }) %>
+        <% } %>
+
+    </div>
+</div>
+
+<main class="bg-gris categorias">
+    <h2>Find Groups by Category</h2>
+
+    <div class="contenedor">
+        <ul class="listado-categorias  grid columnas-2 columnas-md-3">
+            <% categories.forEach(category => { %>
+            <li>
+                <a href="/category/<%= category.slug %>">
+                    <img  src="/img/<%= category.slug %>.jpg">
+                    <p><%= category.name %></p>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</main>
+
+<div class="meeti-bg">
+    <div class="contenedor meeti grid columnas-md-2">
+        <section>
+            <h3>Create a Grupo</h3>
+            <p>Share your interest or passions with others, create your own group completely free.</p>
+        </section>
+        <section>
+            <h3>Join a Group</h3>
+            <p>Meet people who share your interests and passions, join an existing group, and receive notifications about upcoming events.</p>
+        </section>
+    </div>
+</div>
