@@ -75,8 +75,13 @@ const create_account = async (req,res) => {
     const expressErrors = validationResult(req);
 
     try {
-        user.id = shortid.generate();
+        const lastUser = await Users.findOne({
+            order: [['id', 'DESC']]
+        });
+        
+        user.id = lastUser ? lastUser.id + 1 : 1;
         await Users.create(user);
+        
 
         // Generate confirmation URL
         const url = `http://${req.get('host')}/confirm-account/${user.email}`
