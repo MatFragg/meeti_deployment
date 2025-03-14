@@ -13,7 +13,13 @@ const __dirname = dirname(__filename);
 
 const fileStorage = multer.diskStorage({
     destination: (req,file,next) =>{
-        next(null, join(__dirname , '/../public/uploads/profiles/'))
+        const uploadPath  = join(__dirname , '/../public/uploads/profiles/');
+
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
+        }
+        
+        next(null, uploadPath);
     },
     filename: (req,file,next) =>{
         const extention = file.mimetype.split('/')[1];
