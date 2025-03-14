@@ -8,7 +8,7 @@ import Users from "../models/Users.js";
 import Groups from "../models/groups.js";
 
 const Meeti = db.define(
-    'meeti',{
+    'meetis',{
         id : {
             type: Sequelize.UUID,
             primaryKey: true,

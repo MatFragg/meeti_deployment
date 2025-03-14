@@ -3,3 +3,4 @@ node_modules
 public/uploads/groups/*
 public/uploads/profiles/*
 seed/*
+.qodo
