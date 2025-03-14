@@ -11,6 +11,7 @@ import authRouter from './routes/authRoutes.js'
 import meetiAdminRouter from './routes/meetiAdminRoutes.js'
 import meetiRouter from './routes/meetiRoutes.js'
 import groupRouter from './routes/groupRoutes.js'
+import healthRouter from './routes/health.js';
 import bodyParser from 'body-parser'
 import flash from 'connect-flash'
 import session from 'express-session'
@@ -89,13 +90,11 @@ app.use('/',authRouter);
 app.use('/',meetiAdminRouter);
 app.use('/',groupRouter);
 app.use('/',meetiRouter);
+app.use('/', healthRouter); 
 
 db.sync().then(() => console.log('Database connected')).catch(err => console.log(err));
 
-// Health Check
-router.get('/health', (req, res) => {
-    res.status(200).json({ status: "OK", message: "Meeti is running!" });
-});
+
 
 // Add the port
 const host = process.env.HOST || '0.0.0.0';
