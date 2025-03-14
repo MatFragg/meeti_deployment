@@ -75,7 +75,7 @@ const create_account = async (req,res) => {
     const expressErrors = validationResult(req);
 
     try {
-        user.id = uuidv4();
+        user.id = shortid.generate();
         await Users.create(user);
 
         // Generate confirmation URL
