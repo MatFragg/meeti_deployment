@@ -92,6 +92,11 @@ app.use('/',meetiRouter);
 
 db.sync().then(() => console.log('Database connected')).catch(err => console.log(err));
 
+// Health Check
+router.get('/health', (req, res) => {
+    res.status(200).json({ status: "OK", message: "Meeti is running!" });
+});
+
 // Add the port
 const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 5000;
