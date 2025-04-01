@@ -4,7 +4,7 @@ Meeti es una plataforma web diseñada para la creación, gestión y descubrimien
 
 ## 🚀 Cómo Utilizar la Web?
 1️⃣ Accede a la Plataforma
-- Ingresa al siguiente enlace: https://meeti-deployment-9i4f.onrender.com/
+- Ingresa al siguiente enlace: https://meeti-deployment-5jva.onrender.com/
 - Usa las siguientes credenciales de prueba:
     - Email: test@gmail.com
     - Contraseña: 12345
