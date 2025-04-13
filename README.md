@@ -6,7 +6,7 @@ Meeti es una plataforma web diseñada para la creación, gestión y descubrimien
 1️⃣ Accede a la Plataforma
 - Ingresa al siguiente enlace: https://meeti-deployment-5jva.onrender.com/
 - Usa las siguientes credenciales de prueba:
-    - Email: test@gmail.com
+    - Email: correo@correo.com
     - Contraseña: 12345
 
 2️⃣ Explorar y Unirse a Meetis
